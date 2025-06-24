@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
@@ -51,7 +49,6 @@ class TransactionHistoryScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is FinanceLoaded) {
             final history = state.history;
-            log("state is $state");
             if (history.isEmpty) {
               return const Center(child: Text("No transactions yet."));
             }
@@ -71,7 +68,6 @@ class TransactionHistoryScreen extends StatelessWidget {
             );
           } else if (state is SortedState) {
             final history = state.history;
-            log("state is $state");
             if (history.isEmpty) {
               return const Center(child: Text("No transactions yet."));
             }
@@ -209,7 +205,6 @@ class TransactionHistoryScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // Type Dropdown
                   DropdownButtonFormField<String>(
                     value: selectedType,
                     hint: const Text("Select Type"),
@@ -272,7 +267,6 @@ class TransactionHistoryScreen extends StatelessWidget {
                           category: selectedCategory,
                         ),
                       );
-                      log("pressed");
                       Navigator.pop(context);
                     },
                     text: "Apply Filter",

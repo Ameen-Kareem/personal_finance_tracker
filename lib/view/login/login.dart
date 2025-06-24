@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/authentication/authentication_bloc.dart';
@@ -18,10 +16,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _login() {
     if (_formKey.currentState!.validate()) {
-      // Perform login logic
       String username = _usernameController.text;
       String password = _passwordController.text;
-      log("Username: $username, Password: $password");
       context.read<AuthenticationBloc>().add(
         LoginEvent(password: password, username: username),
       );
@@ -110,7 +106,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               BlocListener<AuthenticationBloc, AuthenticationState>(
                 listener: (context, state) {
-                  log("state is $state in login");
                   if (state is LoginFailedState) {
                     CustomWidgets().PopUpMsg(
                       msg: state.error,

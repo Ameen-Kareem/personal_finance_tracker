@@ -1,16 +1,5 @@
-# personal_finance_tracker
+# Dime Drop 
 
-A new Flutter project.
+A personal finance management app.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    Dime Drop is a personal finance management app that helps you keep track of your incomes and expenses throughout the year.The apps shows you your income and expense as a graph and also displays the incomes and expenses of a specific date as well as a specific month.You can view all your transactions and edit or delete them.You are required to be authenticated to use the app.![alt text](8.png) ![alt text](1.png) ![alt text](2.png) ![alt text](3.png) ![alt text](4.png) ![alt text](5.png) ![alt text](6.png) ![alt text](7.png)

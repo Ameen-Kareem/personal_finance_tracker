@@ -1,6 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
 import 'package:personal_finance_tracker/models/finance_helper.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 

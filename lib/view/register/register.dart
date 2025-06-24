@@ -23,14 +23,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   void _register() {
     if (_formKey.currentState!.validate()) {
-      // Registration logic
       final username = _usernameController.text;
       final email = _emailController.text;
       final password = _passwordController.text;
       context.read<AuthenticationBloc>().add(
         RegisterEvent(password: password, username: username, email: email),
       );
-      log('Registering: $username, $email, $password');
     }
   }
 
@@ -123,7 +121,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
               BlocListener<AuthenticationBloc, AuthenticationState>(
                 listener: (context, state) {
-                  log("state is $state in register");
                   if (state is RegisterFailedState) {
                     CustomWidgets().PopUpMsg(
                       msg: state.error,

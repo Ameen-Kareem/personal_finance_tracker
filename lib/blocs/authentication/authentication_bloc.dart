@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'authentication_event.dart';
@@ -30,7 +27,6 @@ class AuthenticationBloc
           await prefs.setInt('counter', counter + 1);
         }
         counter = prefs.getInt('counter');
-        log("counter:$counter");
         await prefs.setStringList('user$counter', <String>[
           username,
           password,
@@ -56,9 +52,7 @@ class AuthenticationBloc
       String password = event.password;
       int? counter = prefs.getInt('counter');
       bool userfound = false;
-      log("inside login event");
       if (counter == null) {
-        log("Not registered");
         emit(LoginFailedState(error: "Username not found"));
       } else {
         for (int i = 1; i <= counter; i++) {
@@ -67,18 +61,15 @@ class AuthenticationBloc
               user[1] == password &&
               userfound == false) {
             userfound = true;
-            log("User found");
             await prefs.setString('currentUser', username);
             await prefs.setBool('loggedIn', true);
             emit(LoginSuccesState());
           } else if (username == user[0]) {
             userfound = true;
-            log("Username found");
             emit(LoginFailedState(error: "Incorrect Password"));
           }
         }
         if (userfound == false) {
-          log("User not found");
           emit(LoginFailedState(error: "Username not found"));
         }
       }

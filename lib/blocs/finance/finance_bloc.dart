@@ -62,9 +62,12 @@ class FinanceBloc extends Bloc<FinanceEvent, FinanceState> {
       final history = objectBox.getAllHistory();
 
       emit(
-        FinanceLoaded(
-          history: history,
+        AllFinanceState(
           totalBalance: objectBox.getTotalBalance(),
+          totalIncome: objectBox.getTotalIncome(),
+          totalExpense: objectBox.getTotalExpense(),
+          avgMonthlyIncome: objectBox.getAverageMonthlyIncome(),
+          avgMonthlyExpense: objectBox.getAverageMonthlyExpense(),
         ),
       );
     });

@@ -46,7 +46,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
           description: _descriptionController.text,
         ),
       );
-      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, '/home');
     } else if (_selectedDate == null) {
       ScaffoldMessenger.of(
         context,

@@ -16,9 +16,13 @@ class FinanceBloc extends Bloc<FinanceEvent, FinanceState> {
       objectBox.addFinance(event);
       final history = objectBox.getAllHistory();
       emit(
-        FinanceLoaded(
+        AllFinanceState(
           history: history,
           totalBalance: objectBox.getTotalBalance(),
+          totalIncome: objectBox.getTotalIncome(),
+          totalExpense: objectBox.getTotalExpense(),
+          avgMonthlyIncome: objectBox.getAverageMonthlyIncome(),
+          avgMonthlyExpense: objectBox.getAverageMonthlyExpense(),
         ),
       );
     });
@@ -63,6 +67,7 @@ class FinanceBloc extends Bloc<FinanceEvent, FinanceState> {
 
       emit(
         AllFinanceState(
+          history: history,
           totalBalance: objectBox.getTotalBalance(),
           totalIncome: objectBox.getTotalIncome(),
           totalExpense: objectBox.getTotalExpense(),
@@ -119,9 +124,11 @@ class FinanceBloc extends Bloc<FinanceEvent, FinanceState> {
     });
     on<FetchFinancesEvent>((event, emit) {
       emit(LoadingState());
+      final history = objectBox.getAllHistory();
 
       emit(
         AllFinanceState(
+          history: history,
           totalBalance: objectBox.getTotalBalance(),
           totalIncome: objectBox.getTotalIncome(),
           totalExpense: objectBox.getTotalExpense(),

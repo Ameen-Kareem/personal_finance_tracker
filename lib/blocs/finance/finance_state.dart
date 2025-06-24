@@ -37,12 +37,14 @@ class SortedState extends FinanceState {
 }
 
 class AllFinanceState extends FinanceState {
+  final List<Finance> history;
   final double totalBalance;
   final double totalIncome;
   final double totalExpense;
   final double avgMonthlyIncome;
   final double avgMonthlyExpense;
   AllFinanceState({
+    required this.history,
     required this.totalBalance,
     required this.totalExpense,
     required this.totalIncome,

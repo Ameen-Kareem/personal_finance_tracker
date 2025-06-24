@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
+import 'package:personal_finance_tracker/constants/color_constants.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 import 'package:personal_finance_tracker/view/history/date_history.dart';
 import 'package:personal_finance_tracker/view/history/month_history.dart';
@@ -75,7 +76,7 @@ class _HomeState extends State<Home> {
             return Center(child: CircularProgressIndicator());
           }
           return Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 16.0, left: 16, right: 16),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -95,7 +96,7 @@ class _HomeState extends State<Home> {
                         content: "Total Income:\n$totalIncome",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: ColorConstants.TEXTCOLOR,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -104,7 +105,8 @@ class _HomeState extends State<Home> {
                         content: "Total Expense:\n$totalExpense",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: ColorConstants.TEXTCOLOR,
+
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -118,7 +120,8 @@ class _HomeState extends State<Home> {
                         content: "Avg Income:\n$avgIncome",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: ColorConstants.TEXTCOLOR,
+
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -127,7 +130,8 @@ class _HomeState extends State<Home> {
                         content: "Avg Expense:\n$avgExpense",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: ColorConstants.TEXTCOLOR,
+
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -202,7 +206,7 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
 
-        color: Colors.blue,
+        color: ColorConstants.PRIMARYCOLOR,
         boxShadow: [
           BoxShadow(color: Colors.black, blurRadius: 5, offset: Offset(0, 5)),
         ],
@@ -212,7 +216,7 @@ class _HomeState extends State<Home> {
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: Colors.white,
+          color: ColorConstants.TEXTCOLOR,
         ),
       ),
     );
@@ -230,7 +234,7 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.blue,
+          color: ColorConstants.PRIMARYCOLOR,
           boxShadow: [
             BoxShadow(
               color: Colors.black,
@@ -245,7 +249,8 @@ class _HomeState extends State<Home> {
               textStyle ??
               TextStyle(
                 fontSize: 15,
-                color: Colors.white,
+                color: ColorConstants.TEXTCOLOR,
+
                 fontWeight: FontWeight.w500,
               ),
         ),
@@ -258,25 +263,25 @@ class _HomeState extends State<Home> {
       PieChartData(
         sections: [
           PieChartSectionData(
-            color: Colors.green,
+            color: ColorConstants.INCOMECOLOR,
             value: income,
             title: 'Income',
             radius: 125,
             titleStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: ColorConstants.TEXTCOLOR,
             ),
           ),
           PieChartSectionData(
-            color: Colors.red,
+            color: ColorConstants.EXPENSECOLOR,
             value: expense,
             title: 'Expense',
             radius: 125,
             titleStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: ColorConstants.TEXTCOLOR,
             ),
           ),
         ],

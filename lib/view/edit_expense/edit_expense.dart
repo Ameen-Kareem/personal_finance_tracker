@@ -69,15 +69,19 @@ class _EditExpenseScreenState extends State<EditExpenseScreen> {
           key: _formKey,
           child: ListView(
             children: [
-              TextFormField(
+              CustomWidgets().CustomTextField(
                 controller: _amountController,
-                decoration: InputDecoration(labelText: 'Amount'),
-                keyboardType: TextInputType.number,
-                validator:
-                    (value) =>
-                        value == null || double.tryParse(value) == null
-                            ? 'Enter valid amount'
-                            : null,
+                inputType: TextInputType.number,
+                labelText: "Amount",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Amount is required';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Enter a valid number';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 16),
               Row(
@@ -99,18 +103,21 @@ class _EditExpenseScreenState extends State<EditExpenseScreen> {
                       );
                     }).toList(),
               ),
-              DropdownButtonFormField<String>(
-                value: _category,
-                hint: Text("Select Category"),
-                items:
+              CustomWidgets().CustomDropDownButton(
+                currentValue: _category,
+                validator:
+                    (value) =>
+                        value == null ? 'Please select a category' : null,
+                labelText: 'Category',
+                values:
                     _categories[_type]!
                         .map(
                           (cat) =>
                               DropdownMenuItem(value: cat, child: Text(cat)),
                         )
                         .toList(),
-                onChanged: (val) => setState(() => _category = val),
-                validator: (val) => val == null ? 'Select a category' : null,
+                onChangedfunctionality:
+                    (value) => setState(() => _category = value),
               ),
               ListTile(
                 title: Text(
@@ -129,15 +136,19 @@ class _EditExpenseScreenState extends State<EditExpenseScreen> {
                   if (picked != null) setState(() => _selectedDate = picked);
                 },
               ),
-              TextFormField(
+              CustomWidgets().CustomTextField(
                 controller: _descriptionController,
-                decoration: InputDecoration(labelText: 'Description'),
+                labelText: 'Description / Notes (optional)',
                 maxLines: 3,
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _submitForm,
-                child: Text('Save Changes'),
+              CustomWidgets().CustomButton(
+                functionality: _submitForm,
+                text: 'Submit',
+                maxHeight: 50,
+                maxWidth: double.infinity,
+                minHeight: 50,
+                minWidth: double.infinity,
               ),
             ],
           ),

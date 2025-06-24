@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
+import 'package:personal_finance_tracker/constants/color_constants.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 import 'package:personal_finance_tracker/view/expense_detail/expense_detail.dart';
 import 'package:personal_finance_tracker/view/widgets/custom_widgets.dart';
@@ -126,7 +127,8 @@ class TransactionHistoryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
 
-        color: Colors.blue,
+        color: ColorConstants.PRIMARYCOLOR,
+
         boxShadow: [
           BoxShadow(color: Colors.black, blurRadius: 5, offset: Offset(0, 5)),
         ],
@@ -136,7 +138,7 @@ class TransactionHistoryScreen extends StatelessWidget {
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: Colors.white,
+          color: ColorConstants.TEXTCOLOR,
         ),
       ),
     );
@@ -158,7 +160,10 @@ class TransactionHistoryScreen extends StatelessWidget {
             transaction.type == 'Expense'
                 ? Icons.arrow_downward
                 : Icons.arrow_upward,
-            color: transaction.type == 'Income' ? Colors.green : Colors.red,
+            color:
+                transaction.type == 'Income'
+                    ? ColorConstants.INCOMECOLOR
+                    : ColorConstants.EXPENSECOLOR,
           ),
           title: Text(
             "${transaction.category} - ₹${transaction.amount.toStringAsFixed(2)}",
@@ -170,7 +175,10 @@ class TransactionHistoryScreen extends StatelessWidget {
             transaction.type.toUpperCase(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: transaction.type == 'Income' ? Colors.green : Colors.red,
+              color:
+                  transaction.type == 'Income'
+                      ? ColorConstants.INCOMECOLOR
+                      : ColorConstants.EXPENSECOLOR,
             ),
           ),
         ),

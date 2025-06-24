@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
+import 'package:personal_finance_tracker/constants/color_constants.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 import 'package:personal_finance_tracker/view/expense_detail/expense_detail.dart';
 
@@ -30,13 +31,13 @@ class _MonthHistoryState extends State<MonthHistory> {
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
-          color: Colors.blue,
+          color: ColorConstants.PRIMARYCOLOR,
         ),
         title: Text(
           "Transactions on ${month.toLocal().toString().split(' ')[0]}",
           style: TextStyle(
             fontSize: 20,
-            color: Colors.blue,
+            color: ColorConstants.PRIMARYCOLOR,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -101,7 +102,10 @@ class _MonthHistoryState extends State<MonthHistory> {
             transaction.type == 'Expense'
                 ? Icons.arrow_downward
                 : Icons.arrow_upward,
-            color: transaction.type == 'Income' ? Colors.green : Colors.red,
+            color:
+                transaction.type == 'Income'
+                    ? ColorConstants.INCOMECOLOR
+                    : ColorConstants.EXPENSECOLOR,
           ),
           title: Text(
             "${transaction.category} - ₹${transaction.amount.toStringAsFixed(2)}",
@@ -113,7 +117,10 @@ class _MonthHistoryState extends State<MonthHistory> {
             transaction.type.toUpperCase(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: transaction.type == 'Income' ? Colors.green : Colors.red,
+              color:
+                  transaction.type == 'Income'
+                      ? ColorConstants.INCOMECOLOR
+                      : ColorConstants.EXPENSECOLOR,
             ),
           ),
         ),

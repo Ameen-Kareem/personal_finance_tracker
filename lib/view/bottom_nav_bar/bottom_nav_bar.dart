@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
+import 'package:personal_finance_tracker/constants/color_constants.dart';
 import 'package:personal_finance_tracker/view/history/history.dart';
 import 'package:personal_finance_tracker/view/home/home.dart';
 import 'package:personal_finance_tracker/view/profile/profile.dart';
@@ -39,6 +40,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             _currentIndex = index;
           });
         },
+        backgroundColor: Colors.black,
+        unselectedItemColor: ColorConstants.TEXTCOLOR,
+        selectedItemColor: ColorConstants.PRIMARYCOLOR,
         type: BottomNavigationBarType.fixed,
       ),
     );

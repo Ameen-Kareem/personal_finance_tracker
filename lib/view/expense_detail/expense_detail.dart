@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
+import 'package:personal_finance_tracker/constants/color_constants.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 import 'package:personal_finance_tracker/view/edit_expense/edit_expense.dart';
 import 'package:personal_finance_tracker/view/home/home.dart';
@@ -18,7 +19,7 @@ class ExpenseDetail extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit, color: Colors.blue),
+            icon: const Icon(Icons.edit, color: ColorConstants.PRIMARYCOLOR),
             onPressed: () {
               Navigator.push(
                 context,
@@ -54,7 +55,8 @@ class ExpenseDetail extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           margin: EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: ColorConstants.PRIMARYCOLOR,
+
             boxShadow: [
               BoxShadow(
                 blurRadius: 10,
@@ -71,7 +73,8 @@ class ExpenseDetail extends StatelessWidget {
                 "₹ ${expense.amount.toStringAsFixed(2)}",
                 style: TextStyle(
                   fontSize: 30,
-                  color: Colors.white,
+                  color: ColorConstants.TEXTCOLOR,
+
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -80,7 +83,8 @@ class ExpenseDetail extends StatelessWidget {
                 "Type: ${expense.type}",
                 style: TextStyle(
                   fontSize: 25,
-                  color: Colors.white,
+                  color: ColorConstants.TEXTCOLOR,
+
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -89,7 +93,8 @@ class ExpenseDetail extends StatelessWidget {
                 "Category: ${expense.category}",
                 style: TextStyle(
                   fontSize: 25,
-                  color: Colors.white,
+                  color: ColorConstants.TEXTCOLOR,
+
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -98,7 +103,8 @@ class ExpenseDetail extends StatelessWidget {
                 "Date: ${expense.date.toLocal().toString().split(' ')[0]}",
                 style: TextStyle(
                   fontSize: 22,
-                  color: Colors.white,
+                  color: ColorConstants.TEXTCOLOR,
+
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -107,7 +113,8 @@ class ExpenseDetail extends StatelessWidget {
                 "Description: ${expense.description ?? "No Description"}",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.white,
+                  color: ColorConstants.TEXTCOLOR,
+
                   fontWeight: FontWeight.w500,
                 ),
               ),

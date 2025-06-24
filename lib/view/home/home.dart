@@ -23,13 +23,14 @@ class _HomeState extends State<Home> {
     context.read<FinanceBloc>().add(FetchFinancesEvent());
   }
 
-  late double totalBalance;
-  late double totalIncome;
-  late double totalExpense;
-  late double avgIncome;
-  late double avgExpense;
+  double? totalBalance;
+  double? totalIncome;
+  double? totalExpense;
+  double? avgIncome;
+  double? avgExpense;
   DateTime? _selectedDate;
   DateTime? _selectedMonth;
+  List<Finance> history = [];
   Future<void> _pickDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -66,6 +67,7 @@ class _HomeState extends State<Home> {
           } else if (state is FinanceLoaded) {
             totalBalance = state.totalBalance;
           } else if (state is AllFinanceState) {
+            history = state.history;
             totalBalance = state.totalBalance;
             totalIncome = state.totalIncome;
             totalExpense = state.totalExpense;
@@ -75,6 +77,16 @@ class _HomeState extends State<Home> {
           if (state is LoadingState) {
             return Center(child: CircularProgressIndicator());
           }
+          if (history.isEmpty) {
+            return Text(
+              "No transactions yet!",
+              style: TextStyle(
+                fontSize: 30,
+                color: ColorConstants.EXPENSECOLOR,
+                fontWeight: FontWeight.w600,
+              ),
+            );
+          }
           return Padding(
             padding: const EdgeInsets.only(top: 16.0, left: 16, right: 16),
             child: SingleChildScrollView(
@@ -83,7 +95,7 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                     height: 300,
-                    child: buildPieChart(totalIncome, totalExpense),
+                    child: buildPieChart(totalIncome ?? 0, totalExpense ?? 0),
                   ),
                   currentBalanceArea(
                     totalBalance?.toStringAsFixed(2) ?? "0.00",
@@ -93,7 +105,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       optionContainer(
-                        content: "Total Income:\n$totalIncome",
+                        content: "Total Income:\n${totalIncome ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
                           color: ColorConstants.TEXTCOLOR,
@@ -102,7 +114,7 @@ class _HomeState extends State<Home> {
                       ),
                       const SizedBox(width: 10),
                       optionContainer(
-                        content: "Total Expense:\n$totalExpense",
+                        content: "Total Expense:\n${totalExpense ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
                           color: ColorConstants.TEXTCOLOR,
@@ -117,7 +129,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       optionContainer(
-                        content: "Avg Income:\n$avgIncome",
+                        content: "Avg Income:\n${avgIncome ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
                           color: ColorConstants.TEXTCOLOR,
@@ -127,7 +139,7 @@ class _HomeState extends State<Home> {
                       ),
                       const SizedBox(width: 10),
                       optionContainer(
-                        content: "Avg Expense:\n$avgExpense",
+                        content: "Avg Expense:\n${avgExpense ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
                           color: ColorConstants.TEXTCOLOR,

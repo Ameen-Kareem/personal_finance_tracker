@@ -78,13 +78,41 @@ class _HomeState extends State<Home> {
             return Center(child: CircularProgressIndicator());
           }
           if (history.isEmpty) {
-            return Text(
-              "No transactions yet!",
-              style: TextStyle(
-                fontSize: 30,
-                color: ColorConstants.EXPENSECOLOR,
-                fontWeight: FontWeight.w600,
-              ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(width: double.infinity),
+                Text(
+                  "No transactions yet!",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: ColorConstants.EXPENSECOLOR,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(context, '/expense'),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    decoration: BoxDecoration(
+                      color: ColorConstants.PRIMARYCOLOR,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(blurRadius: 4, offset: Offset(00, 04)),
+                      ],
+                    ),
+                    child: Text(
+                      "Add Income or Expense",
+                      style: TextStyle(
+                        color: ColorConstants.TEXTCOLOR,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             );
           }
           return Padding(

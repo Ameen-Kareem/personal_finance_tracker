@@ -5,6 +5,7 @@ import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
 import 'package:personal_finance_tracker/routes.dart';
 import 'package:personal_finance_tracker/view/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:personal_finance_tracker/view/login/login.dart';
+import 'package:personal_finance_tracker/view/splash/splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: logStatus ? const BottomNavBar() : const LoginScreen(),
+        home: Splash(logStatus: logStatus),
         routes: Routes.routes,
       ),
     );

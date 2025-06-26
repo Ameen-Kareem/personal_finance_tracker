@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
   void initState() {
     WidgetsFlutterBinding.ensureInitialized();
     context.read<FinanceBloc>().add(FetchFinancesEvent());
@@ -59,6 +60,18 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: null,
+        title: Text(
+          "Dime Drop",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w700,
+            color: ColorConstants.PRIMARYCOLOR,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: BlocBuilder<FinanceBloc, FinanceState>(
         builder: (context, state) {
           log("state is $state");
@@ -177,6 +190,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 20),
                   SizedBox(
                     height: 200,
                     child: GridView(

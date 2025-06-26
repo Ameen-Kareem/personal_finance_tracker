@@ -32,7 +32,7 @@ class AuthenticationBloc
           password,
           email,
         ]);
-
+        await prefs.setString('currentUser', username);
         await prefs.setBool('loggedIn', true);
         emit(RegisterSuccessState());
       } catch (e) {

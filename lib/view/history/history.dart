@@ -13,6 +13,7 @@ class TransactionHistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         centerTitle: true,
         title: const Text(
           'Transaction History',

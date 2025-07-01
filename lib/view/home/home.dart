@@ -60,17 +60,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConstants.PRIMARY,
       appBar: AppBar(
-        leading: null,
+        elevation: 4,
+        shadowColor: Colors.red,
+        backgroundColor: Colors.cyan,
+        toolbarHeight: 70,
+        shape: ContinuousRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
         title: Text(
           "Dime Drop",
           style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w700,
-            color: ColorConstants.PRIMARYCOLOR,
+            color: ColorConstants.TEXTCOLOR,
           ),
         ),
-        centerTitle: true,
       ),
       body: BlocBuilder<FinanceBloc, FinanceState>(
         builder: (context, state) {
@@ -110,7 +116,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                     decoration: BoxDecoration(
-                      color: ColorConstants.PRIMARYCOLOR,
+                      color: ColorConstants.CARD,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(blurRadius: 4, offset: Offset(00, 04)),
@@ -260,7 +266,7 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
 
-        color: ColorConstants.PRIMARYCOLOR,
+        color: ColorConstants.CARD,
         boxShadow: [
           BoxShadow(color: Colors.black, blurRadius: 5, offset: Offset(0, 5)),
         ],
@@ -288,7 +294,7 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: ColorConstants.PRIMARYCOLOR,
+          color: ColorConstants.CARD,
           boxShadow: [
             BoxShadow(
               color: Colors.black,

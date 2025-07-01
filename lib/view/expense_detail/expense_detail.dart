@@ -19,7 +19,7 @@ class ExpenseDetail extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit, color: ColorConstants.PRIMARYCOLOR),
+            icon: const Icon(Icons.edit, color: ColorConstants.CARD),
             onPressed: () {
               Navigator.push(
                 context,
@@ -59,7 +59,7 @@ class ExpenseDetail extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           margin: EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
-            color: ColorConstants.PRIMARYCOLOR,
+            color: ColorConstants.CARD,
 
             boxShadow: [
               BoxShadow(

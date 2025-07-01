@@ -117,13 +117,13 @@ class _DateHistoryState extends State<DateHistory> {
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
         icon: Icon(Icons.arrow_back_ios),
-        color: ColorConstants.PRIMARYCOLOR,
+        color: ColorConstants.CARD,
       ),
       title: Text(
         "Transactions on ${date.toLocal().toString().split(' ')[0]}",
         style: TextStyle(
           fontSize: 20,
-          color: ColorConstants.PRIMARYCOLOR,
+          color: ColorConstants.CARD,
 
           fontWeight: FontWeight.w600,
         ),

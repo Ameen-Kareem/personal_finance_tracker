@@ -42,7 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         },
         backgroundColor: Colors.black,
         unselectedItemColor: ColorConstants.TEXTCOLOR,
-        selectedItemColor: ColorConstants.PRIMARYCOLOR,
+        selectedItemColor: ColorConstants.CARD,
         type: BottomNavigationBarType.fixed,
       ),
     );

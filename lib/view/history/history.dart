@@ -12,7 +12,9 @@ class TransactionHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConstants.PRIMARY,
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         leading: null,
         centerTitle: true,
         title: const Text(
@@ -124,7 +126,7 @@ class TransactionHistoryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
 
-        color: ColorConstants.PRIMARYCOLOR,
+        color: ColorConstants.CARD,
 
         boxShadow: [
           BoxShadow(color: Colors.black, blurRadius: 5, offset: Offset(0, 5)),
@@ -151,6 +153,7 @@ class TransactionHistoryScreen extends StatelessWidget {
             ),
           ),
       child: Card(
+        elevation: 4,
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         child: ListTile(
           leading: Icon(

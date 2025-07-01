@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:personal_finance_tracker/models/finance_helper.dart';
+import 'package:personal_finance_tracker/services/finance_helper.dart';
 import 'package:personal_finance_tracker/models/finance_model.dart';
 
 part 'finance_event.dart';

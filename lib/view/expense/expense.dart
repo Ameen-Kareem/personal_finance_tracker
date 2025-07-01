@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/authentication/authentication_bloc.dart';
 import 'package:personal_finance_tracker/blocs/finance/finance_bloc.dart';
-import 'package:personal_finance_tracker/view/expense/expense.dart';
 import 'package:personal_finance_tracker/view/widgets/custom_widgets.dart';
 
 class ExpenseScreen extends StatefulWidget {
@@ -46,7 +45,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
           description: _descriptionController.text,
         ),
       );
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
     } else if (_selectedDate == null) {
       ScaffoldMessenger.of(
         context,
@@ -150,7 +149,11 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                 listener: (context, state) {
                   if (state is LoggedOutState) {
                     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                      Navigator.pushReplacementNamed(context, '/login');
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/login',
+                        (route) => false,
+                      );
                     });
                   }
                 },

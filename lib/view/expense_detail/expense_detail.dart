@@ -40,7 +40,11 @@ class ExpenseDetail extends StatelessWidget {
               context.read<FinanceBloc>().add(
                 DeleteExpenseEvent(id: expense.id),
               );
-              Navigator.pushReplacementNamed(context, '/home');
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/home',
+                (route) => false,
+              );
             },
             icon: Icon(Icons.delete),
             color: Colors.red,

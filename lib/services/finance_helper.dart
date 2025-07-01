@@ -1,5 +1,5 @@
 import '../objectbox.g.dart';
-import 'finance_model.dart';
+import '../models/finance_model.dart';
 import '../blocs/finance/finance_bloc.dart';
 
 class ObjectBox {

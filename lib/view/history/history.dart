@@ -12,9 +12,7 @@ class TransactionHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.PRIMARY,
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
         leading: null,
         centerTitle: true,
         title: const Text(

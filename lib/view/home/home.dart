@@ -60,11 +60,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.PRIMARY,
       appBar: AppBar(
         elevation: 4,
-        shadowColor: Colors.red,
-        backgroundColor: Colors.cyan,
+        shadowColor: Colors.black,
         toolbarHeight: 70,
         shape: ContinuousRectangleBorder(
           borderRadius: BorderRadius.circular(30),
@@ -74,13 +72,12 @@ class _HomeState extends State<Home> {
           style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w700,
-            color: ColorConstants.TEXTCOLOR,
+            color: Colors.black,
           ),
         ),
       ),
       body: BlocBuilder<FinanceBloc, FinanceState>(
         builder: (context, state) {
-          log("state is $state");
           if (state is FinanceInitial) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is FinanceLoaded) {
@@ -106,7 +103,7 @@ class _HomeState extends State<Home> {
                   "No transactions yet!",
                   style: TextStyle(
                     fontSize: 30,
-                    color: ColorConstants.EXPENSECOLOR,
+                    color: Colors.black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -116,7 +113,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                     decoration: BoxDecoration(
-                      color: ColorConstants.CARD,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(blurRadius: 4, offset: Offset(00, 04)),
@@ -125,7 +122,7 @@ class _HomeState extends State<Home> {
                     child: Text(
                       "Add Income or Expense",
                       style: TextStyle(
-                        color: ColorConstants.TEXTCOLOR,
+                        color: Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -152,10 +149,11 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       optionContainer(
-                        content: "Total Income:\n${totalIncome ?? 0}",
+                        content:
+                            "Total Income:\n${totalIncome?.toStringAsFixed(2) ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: ColorConstants.TEXTCOLOR,
+                          color: Colors.black,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -164,7 +162,7 @@ class _HomeState extends State<Home> {
                         content: "Total Expense:\n${totalExpense ?? 0}",
                         textStyle: TextStyle(
                           fontSize: 20,
-                          color: ColorConstants.TEXTCOLOR,
+                          color: Colors.black,
 
                           fontWeight: FontWeight.w600,
                         ),

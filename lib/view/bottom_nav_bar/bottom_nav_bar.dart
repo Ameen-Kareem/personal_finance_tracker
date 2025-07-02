@@ -41,7 +41,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           });
         },
         backgroundColor: Colors.black,
-        unselectedItemColor: ColorConstants.TEXTCOLOR,
+        unselectedItemColor: Colors.white,
         selectedItemColor: ColorConstants.CARD,
         type: BottomNavigationBarType.fixed,
       ),

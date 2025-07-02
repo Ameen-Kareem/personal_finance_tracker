@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
   void initState() {
     () async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      username = await prefs.getString('currentUser');
+      username = prefs.getString('currentUser');
       log("usename:$username");
     };
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_tracker/blocs/authentication/authentication_bloc.dart';
+import 'package:personal_finance_tracker/constants/img_constants.dart';
 import 'package:personal_finance_tracker/view/widgets/custom_widgets.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -35,9 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: [
+              const SizedBox(height: 50),
+              Image.asset(ImageConstants.BGLOGO, height: 200),
               Container(
                 alignment: Alignment.centerLeft,
                 width: double.infinity,
